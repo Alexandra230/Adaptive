@@ -1,0 +1,110 @@
+﻿.nav-drop {
+  transition: all 0.3s ease-in-out;
+  background: inherit;
+  color: white;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+}
+@media (min-width: 768px) {
+  .nav-drop {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    background: none;
+  }
+}
+.nav-active .nav-drop {
+  opacity: 1;
+  visibility: visible;
+}
+@media (min-width: 768px) {
+  .nav-drop > ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+}
+.nav-drop li {
+  position: relative;
+  list-style: none;
+}
+.nav-drop li + li {
+  padding-left: 20px;
+}
+.nav-drop li.active a {
+  opacity: 0.5;
+}
+.nav-drop li:hover > a {
+  opacity: 0.5;
+}
+.nav-drop li:hover > ul {
+  display: block;
+}
+.nav-drop li > ul {
+  display: none;
+  width: 100%;
+  top: 100%;
+  left: 0;
+  z-index: 2;
+}
+@media (min-width: 768px) {
+  .nav-drop li > ul {
+    position: absolute;
+  }
+}
+.nav-drop a {
+  color: inherit;
+}
+.nav-opener {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  font-size: 0;
+  line-height: 0;
+  float: right;
+}
+@media (min-width: 768px) {
+  .nav-opener {
+    display: none;
+  }
+}
+.nav-opener:before, .nav-opener:after, .nav-opener span {
+  transition: all 0.3s ease-in-out;
+  background: #000;
+  position: absolute;
+  top: 16px;
+  left: 15%;
+  right: 15%;
+  height: 3px;
+  margin-top: -2px;
+}
+.nav-opener:before, .nav-opener:after {
+  content: '';
+  top: 10px;
+}
+.nav-opener:after {
+  top: 22px;
+}
+.nav-opener:hover {
+  opacity: 0.9;
+}
+.nav-active .nav-opener span {
+  opacity: 0;
+}
+.nav-active .nav-opener:after, .nav-active .nav-opener:before {
+  transform: rotate(45deg);
+  top: 16px;
+  left: 15%;
+  right: 15%;
+}
+.nav-active .nav-opener:after {
+  transform: rotate(-45deg);
+}
+.resize-active .nav-drop, .resize-active .nav-drop > ul {
+  transition: none !important;
+}
